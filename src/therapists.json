@@ -1,0 +1,233 @@
+[
+  {
+    "id": "T01",
+    "name": "Katharine De Santos",
+    "active": true,
+    "reviewStatus": "draft",
+    "sortOrder": 1,
+    "services": [
+      "couples"
+    ],
+    "childMin": null,
+    "childMax": null,
+    "topics": [
+      "A",
+      "G",
+      "R",
+      "L",
+      "M"
+    ],
+    "languages": [
+      "English"
+    ],
+    "profileUrl": "https://www.healthymindspsychotherapy.com/our-team-katharine-de-santos"
+  },
+  {
+    "id": "T02",
+    "name": "Kelsey DuBiel",
+    "active": true,
+    "reviewStatus": "draft",
+    "sortOrder": 2,
+    "services": [
+      "adult_individual"
+    ],
+    "childMin": null,
+    "childMax": null,
+    "topics": [
+      "A",
+      "G",
+      "R",
+      "L",
+      "M"
+    ],
+    "languages": [
+      "English"
+    ],
+    "profileUrl": "https://www.healthymindspsychotherapy.com/our-team-kelsey-dubiel"
+  },
+  {
+    "id": "T03",
+    "name": "Sarah Brown",
+    "active": true,
+    "reviewStatus": "draft",
+    "sortOrder": 3,
+    "services": [
+      "adult_individual",
+      "child_teen"
+    ],
+    "childMin": 8,
+    "childMax": 17,
+    "topics": [
+      "A",
+      "G",
+      "L",
+      "M"
+    ],
+    "languages": [
+      "English"
+    ],
+    "profileUrl": "https://www.healthymindspsychotherapy.com/our-team-sarah-brown"
+  },
+  {
+    "id": "T04",
+    "name": "Gabrielle McCarthy",
+    "active": true,
+    "reviewStatus": "draft",
+    "sortOrder": 4,
+    "services": [
+      "adult_individual",
+      "couples"
+    ],
+    "childMin": null,
+    "childMax": null,
+    "topics": [
+      "A",
+      "R",
+      "L",
+      "M"
+    ],
+    "languages": [
+      "English",
+      "French"
+    ],
+    "profileUrl": "https://www.healthymindspsychotherapy.com/our-team-gabrielle-mccarthy"
+  },
+  {
+    "id": "T05",
+    "name": "Kimberly Cartwright",
+    "active": true,
+    "reviewStatus": "draft",
+    "sortOrder": 5,
+    "services": [
+      "adult_individual"
+    ],
+    "childMin": null,
+    "childMax": null,
+    "topics": [
+      "A",
+      "G",
+      "R",
+      "L"
+    ],
+    "languages": [
+      "English"
+    ],
+    "profileUrl": "https://www.healthymindspsychotherapy.com/our-team-kimberly-cartwrigh"
+  },
+  {
+    "id": "T06",
+    "name": "Atessa Hooshvar",
+    "active": true,
+    "reviewStatus": "draft",
+    "sortOrder": 6,
+    "services": [
+      "adult_individual"
+    ],
+    "childMin": null,
+    "childMax": null,
+    "topics": [
+      "A",
+      "G",
+      "L"
+    ],
+    "languages": [
+      "English",
+      "Farsi"
+    ],
+    "profileUrl": "https://www.healthymindspsychotherapy.com/our-team-atessa-hooshvar"
+  },
+  {
+    "id": "T07",
+    "name": "Maria Moncaleano",
+    "active": true,
+    "reviewStatus": "draft",
+    "sortOrder": 7,
+    "services": [
+      "adult_individual"
+    ],
+    "childMin": null,
+    "childMax": null,
+    "topics": [
+      "A",
+      "G",
+      "L",
+      "M"
+    ],
+    "languages": [
+      "English",
+      "Spanish"
+    ],
+    "profileUrl": "https://www.healthymindspsychotherapy.com/our-team-maria-moncaleano"
+  },
+  {
+    "id": "T08",
+    "name": "Erin Hardy",
+    "active": true,
+    "reviewStatus": "draft",
+    "sortOrder": 8,
+    "services": [
+      "adult_individual",
+      "child_teen"
+    ],
+    "childMin": 15,
+    "childMax": 17,
+    "topics": [
+      "A",
+      "R",
+      "L",
+      "M"
+    ],
+    "languages": [
+      "English"
+    ],
+    "profileUrl": "https://www.healthymindspsychotherapy.com/our-team-erin-hardy"
+  },
+  {
+    "id": "T09",
+    "name": "Kasey Silva",
+    "active": true,
+    "reviewStatus": "draft",
+    "sortOrder": 9,
+    "services": [
+      "adult_individual",
+      "child_teen",
+      "family"
+    ],
+    "childMin": 6,
+    "childMax": 17,
+    "topics": [
+      "A",
+      "R",
+      "L"
+    ],
+    "languages": [
+      "English",
+      "Portuguese"
+    ],
+    "profileUrl": "https://www.healthymindspsychotherapy.com/our-team-kasey-silva"
+  },
+  {
+    "id": "T10",
+    "name": "Ekta Maloo",
+    "active": true,
+    "reviewStatus": "draft",
+    "sortOrder": 10,
+    "services": [
+      "adult_individual"
+    ],
+    "childMin": null,
+    "childMax": null,
+    "topics": [
+      "A",
+      "G",
+      "R",
+      "L",
+      "M"
+    ],
+    "languages": [
+      "English",
+      "Hindi"
+    ],
+    "profileUrl": "https://www.healthymindspsychotherapy.com/our-team-ekta-maloo"
+  }
+]
