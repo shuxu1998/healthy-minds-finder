@@ -1,0 +1,336 @@
+/* Component styles. Visual values come from theme.css aliases only. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.hmp-root,
+.hmp-panel {
+  font-family: var(--_hmp-body);
+  font-weight: var(--_hmp-body-weight);
+  font-size: var(--_hmp-text-size);
+  line-height: var(--_hmp-line-height);
+  color: var(--_hmp-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+p {
+  margin: var(--_hmp-space-sm) 0;
+}
+
+strong {
+  font-weight: var(--_hmp-strong-weight);
+}
+
+:focus-visible {
+  outline: var(--_hmp-focus-width) solid var(--_hmp-focus);
+  outline-offset: var(--_hmp-focus-offset);
+}
+
+.hmp-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hmp-small {
+  font-size: var(--_hmp-small-size);
+}
+
+.hmp-muted {
+  color: var(--_hmp-text-muted);
+}
+
+/* ---------- Buttons ---------- */
+
+.hmp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--_hmp-space-xs);
+  min-height: var(--_hmp-target);
+  margin: 0;
+  padding: var(--_hmp-btn-pad);
+  border: var(--_hmp-border-width) solid transparent;
+  border-radius: var(--_hmp-pill);
+  background: transparent;
+  color: var(--_hmp-text);
+  font-family: var(--_hmp-body);
+  font-size: var(--_hmp-button-size);
+  font-weight: var(--_hmp-button-weight);
+  line-height: var(--_hmp-line-height);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hmp-btn--primary,
+.hmp-btn--secondary {
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: var(--_hmp-button-tracking);
+}
+
+.hmp-btn--primary {
+  background: var(--_hmp-yellow);
+}
+
+.hmp-btn--primary:hover:not(:disabled) {
+  border-color: var(--_hmp-text);
+}
+
+.hmp-btn--secondary {
+  border-color: var(--_hmp-gold);
+}
+
+.hmp-btn--secondary:hover {
+  border-color: var(--_hmp-text);
+  background: var(--_hmp-hover-bg);
+}
+
+.hmp-btn--text {
+  padding-left: var(--_hmp-space-xs);
+  padding-right: var(--_hmp-space-xs);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hmp-btn--text:hover {
+  text-decoration-thickness: 2px;
+}
+
+.hmp-btn:disabled {
+  opacity: var(--_hmp-disabled-opacity);
+  cursor: not-allowed;
+}
+
+.hmp-btn--unavailable {
+  cursor: default;
+  border-style: dashed;
+  border-color: var(--_hmp-border);
+  background: transparent;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.hmp-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--_hmp-target);
+  height: var(--_hmp-target);
+  margin: 0;
+  padding: 0;
+  border: var(--_hmp-border-width) solid transparent;
+  border-radius: var(--_hmp-pill);
+  background: transparent;
+  color: var(--_hmp-text);
+  font-family: var(--_hmp-body);
+  font-size: var(--_hmp-title-size);
+  font-weight: var(--_hmp-body-weight);
+  line-height: 1;
+  cursor: pointer;
+}
+
+.hmp-icon-btn:hover {
+  border-color: var(--_hmp-border);
+  background: var(--_hmp-hover-bg);
+}
+
+/* ---------- Launcher ---------- */
+
+.hmp-launcher {
+  position: fixed;
+  right: calc(var(--_hmp-edge) + env(safe-area-inset-right, 0px));
+  bottom: calc(var(--_hmp-edge) + env(safe-area-inset-bottom, 0px));
+  z-index: var(--_hmp-z);
+  width: auto;
+  box-shadow: var(--_hmp-shadow-launcher);
+}
+
+/* ---------- Panel ---------- */
+
+.hmp-panel {
+  position: fixed;
+  inset: auto;
+  right: calc(var(--_hmp-edge) + env(safe-area-inset-right, 0px));
+  bottom: calc(var(--_hmp-edge) + var(--_hmp-target) + var(--_hmp-launcher-gap) + env(safe-area-inset-bottom, 0px));
+  width: var(--_hmp-panel-width);
+  max-width: calc(100vw - 40px);
+  max-height: calc(100vh - 2 * var(--_hmp-edge) - var(--_hmp-target) - var(--_hmp-launcher-gap));
+  max-height: calc(100dvh - 2 * var(--_hmp-edge) - var(--_hmp-target) - var(--_hmp-launcher-gap));
+  margin: 0;
+  padding: 0;
+  border: var(--_hmp-border-width) solid var(--_hmp-gold);
+  border-radius: var(--_hmp-radius-panel);
+  background: var(--_hmp-white);
+  box-shadow: var(--_hmp-shadow-panel);
+  overflow: hidden;
+}
+
+.hmp-panel[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.hmp-panel__header {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--_hmp-space-sm);
+  padding: var(--_hmp-space-xs) var(--_hmp-space-sm) var(--_hmp-space-xs) var(--_hmp-space-lg);
+  border-bottom: var(--_hmp-border-width) solid var(--_hmp-gold);
+}
+
+.hmp-panel__brand {
+  font-size: var(--_hmp-small-size);
+  letter-spacing: var(--_hmp-eyebrow-tracking);
+}
+
+.hmp-panel__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--_hmp-space-lg);
+}
+
+@media (max-width: 480px) {
+  .hmp-panel {
+    bottom: calc(var(--_hmp-edge) + env(safe-area-inset-bottom, 0px));
+    width: calc(100vw - 40px);
+    max-height: calc(100vh - 2 * var(--_hmp-edge));
+    max-height: calc(100dvh - 2 * var(--_hmp-edge) - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+  }
+
+  .hmp-panel__body {
+    padding: var(--_hmp-space-md);
+  }
+}
+
+/* ---------- Step content ---------- */
+
+.hmp-demo-banner {
+  margin: 0 0 var(--_hmp-space-md);
+  padding: var(--_hmp-space-xs) var(--_hmp-space-sm);
+  border: var(--_hmp-border-width) dashed var(--_hmp-gold);
+  border-radius: var(--_hmp-radius-option);
+  background: var(--_hmp-bg);
+  font-size: var(--_hmp-small-size);
+}
+
+.hmp-eyebrow {
+  margin: 0;
+  color: var(--_hmp-text-muted);
+  font-size: var(--_hmp-small-size);
+  letter-spacing: var(--_hmp-eyebrow-tracking);
+}
+
+.hmp-title {
+  margin: var(--_hmp-space-xs) 0 var(--_hmp-space-md);
+  font-family: var(--_hmp-head);
+  font-size: var(--_hmp-title-size);
+  font-weight: var(--_hmp-head-weight);
+  line-height: var(--_hmp-heading-line-height);
+}
+
+/* The heading only receives programmatic focus on step changes; it is not a control. */
+.hmp-title:focus {
+  outline: none;
+}
+
+.hmp-stack,
+.hmp-nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_hmp-space-sm);
+  margin: var(--_hmp-space-md) 0;
+}
+
+.hmp-nav {
+  align-items: center;
+}
+
+.hmp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--_hmp-space-sm);
+}
+
+.hmp-summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_hmp-space-xs);
+  padding: var(--_hmp-space-md);
+  border-left: var(--_hmp-focus-width) solid var(--_hmp-gold);
+  border-radius: var(--_hmp-radius-card);
+  background: var(--_hmp-bg);
+}
+
+.hmp-todo {
+  padding: var(--_hmp-space-sm);
+  border: var(--_hmp-border-width) dashed var(--_hmp-text-muted);
+  border-radius: var(--_hmp-radius-option);
+}
+
+/* ---------- Options ---------- */
+
+.hmp-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_hmp-space-sm);
+  margin: var(--_hmp-space-md) 0;
+}
+
+.hmp-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--_hmp-space-sm);
+  width: 100%;
+  min-height: var(--_hmp-target);
+  margin: 0;
+  padding: var(--_hmp-option-pad);
+  border: var(--_hmp-border-width) solid var(--_hmp-border);
+  border-radius: var(--_hmp-radius-option);
+  background: var(--_hmp-white);
+  color: var(--_hmp-text);
+  font-family: var(--_hmp-body);
+  font-size: var(--_hmp-text-size);
+  font-weight: var(--_hmp-button-weight);
+  line-height: var(--_hmp-line-height);
+  text-align: left;
+  cursor: pointer;
+}
+
+.hmp-option:hover {
+  border-color: var(--_hmp-text);
+  background: var(--_hmp-hover-bg);
+}
+
+/* Selected = filled background + heavier border + visible check mark (not colour alone). */
+.hmp-option[aria-pressed='true'] {
+  border-color: var(--_hmp-selected-border);
+  box-shadow: inset 0 0 0 calc(var(--_hmp-selected-border-width) - var(--_hmp-border-width)) var(--_hmp-selected-border);
+  background: var(--_hmp-selected-bg);
+}
+
+.hmp-option__check {
+  flex: none;
+  visibility: hidden;
+}
+
+.hmp-option[aria-pressed='true'] .hmp-option__check {
+  visibility: visible;
+}

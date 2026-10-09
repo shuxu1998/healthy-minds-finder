@@ -2,6 +2,7 @@
   {
     "id": "T01",
     "name": "Katharine De Santos",
+    "credentials": null,
     "active": true,
     "reviewStatus": "draft",
     "sortOrder": 1,
@@ -25,6 +26,7 @@
   {
     "id": "T02",
     "name": "Kelsey DuBiel",
+    "credentials": null,
     "active": true,
     "reviewStatus": "draft",
     "sortOrder": 2,
@@ -48,6 +50,7 @@
   {
     "id": "T03",
     "name": "Sarah Brown",
+    "credentials": null,
     "active": true,
     "reviewStatus": "draft",
     "sortOrder": 3,
@@ -71,6 +74,7 @@
   {
     "id": "T04",
     "name": "Gabrielle McCarthy",
+    "credentials": null,
     "active": true,
     "reviewStatus": "draft",
     "sortOrder": 4,
@@ -95,6 +99,7 @@
   {
     "id": "T05",
     "name": "Kimberly Cartwright",
+    "credentials": null,
     "active": true,
     "reviewStatus": "draft",
     "sortOrder": 5,
@@ -117,6 +122,7 @@
   {
     "id": "T06",
     "name": "Atessa Hooshvar",
+    "credentials": null,
     "active": true,
     "reviewStatus": "draft",
     "sortOrder": 6,
@@ -139,6 +145,7 @@
   {
     "id": "T07",
     "name": "Maria Moncaleano",
+    "credentials": null,
     "active": true,
     "reviewStatus": "draft",
     "sortOrder": 7,
@@ -162,6 +169,7 @@
   {
     "id": "T08",
     "name": "Erin Hardy",
+    "credentials": null,
     "active": true,
     "reviewStatus": "draft",
     "sortOrder": 8,
@@ -185,6 +193,7 @@
   {
     "id": "T09",
     "name": "Kasey Silva",
+    "credentials": null,
     "active": true,
     "reviewStatus": "draft",
     "sortOrder": 9,
@@ -209,6 +218,7 @@
   {
     "id": "T10",
     "name": "Ekta Maloo",
+    "credentials": null,
     "active": true,
     "reviewStatus": "draft",
     "sortOrder": 10,

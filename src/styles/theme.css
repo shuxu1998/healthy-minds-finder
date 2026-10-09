@@ -1,0 +1,76 @@
+/*
+  Theme tokens.
+  Public tokens (--hmp-*) may be set on #hmp-finder-host or inherited from any ancestor.
+  They are never assigned here; defaults live only in the private --_hmp-* aliases,
+  so an inherited public value always wins.
+*/
+:host {
+  all: initial;
+
+  /* Brand colours (user-supplied tokens) */
+  --_hmp-yellow: var(--hmp-yellow, #FFEA91);
+  --_hmp-text: var(--hmp-text, #202020);
+  --_hmp-bg: var(--hmp-bg, #F1F1F1);
+  --_hmp-gold: var(--hmp-gold, #EFBC68);
+  --_hmp-white: var(--hmp-white, #FFFFFF);
+
+  /* State colours (widget choices, derived from the brand set where possible) */
+  --_hmp-text-muted: var(--hmp-text-muted, #555555);
+  --_hmp-border: var(--hmp-border, #8C8C8C);
+  --_hmp-focus: var(--hmp-focus, var(--_hmp-text));
+  --_hmp-selected-bg: var(--hmp-selected-bg, var(--_hmp-yellow));
+  --_hmp-selected-border: var(--hmp-selected-border, var(--_hmp-text));
+  --_hmp-hover-bg: var(--hmp-hover-bg, var(--_hmp-bg));
+  --_hmp-disabled-opacity: var(--hmp-disabled-opacity, 0.5);
+
+  /* Typography. Fonts are not shipped; site-loaded faces are used when present. */
+  --_hmp-body: var(--hmp-body, 'arboria', system-ui, sans-serif);
+  --_hmp-head: var(--hmp-head, 'ivypresto-display', Georgia, serif);
+  --_hmp-body-weight: var(--hmp-body-weight, 300);
+  --_hmp-head-weight: var(--hmp-head-weight, 300);
+  --_hmp-button-weight: var(--hmp-button-weight, 400);
+  --_hmp-strong-weight: var(--hmp-strong-weight, 400);
+  --_hmp-text-size: var(--hmp-text-size, 16px);
+  --_hmp-small-size: var(--hmp-small-size, 14px);
+  --_hmp-button-size: var(--hmp-button-size, 14px);
+  --_hmp-line-height: var(--hmp-line-height, 1.4);
+  /* Site reference headings are 45.4 / 33.6 / 27.8px; the widget uses smaller sizes. */
+  --_hmp-title-size: var(--hmp-title-size, 28px);
+  --_hmp-card-title-size: var(--hmp-card-title-size, 21px);
+  --_hmp-heading-line-height: var(--hmp-heading-line-height, 1.15);
+  /* TODO: confirm button letter-spacing with the site. */
+  --_hmp-button-tracking: var(--hmp-button-tracking, 0.15em);
+  --_hmp-eyebrow-tracking: var(--hmp-eyebrow-tracking, 0.1em);
+
+  /* Dimensions */
+  --_hmp-pill: var(--hmp-pill, 300px);
+  --_hmp-btn-pad: var(--hmp-btn-pad, 11px 15px);
+  --_hmp-option-pad: var(--hmp-option-pad, 11px 15px);
+  --_hmp-target: var(--hmp-target, 44px);
+  --_hmp-panel-width: var(--hmp-panel-width, 400px);
+  --_hmp-edge: var(--hmp-edge, 20px);
+  --_hmp-launcher-gap: var(--hmp-launcher-gap, 14px);
+  --_hmp-z: var(--hmp-z, 2147480000);
+
+  /* Spacing */
+  --_hmp-space-xs: var(--hmp-space-xs, 6px);
+  --_hmp-space-sm: var(--hmp-space-sm, 10px);
+  --_hmp-space-md: var(--hmp-space-md, 16px);
+  --_hmp-space-lg: var(--hmp-space-lg, 24px);
+
+  /* Radii, borders, shadows */
+  --_hmp-radius-panel: var(--hmp-radius-panel, 18px);
+  --_hmp-radius-card: var(--hmp-radius-card, 12px);
+  --_hmp-radius-option: var(--hmp-radius-option, 12px);
+  --_hmp-border-width: var(--hmp-border-width, 1px);
+  --_hmp-selected-border-width: var(--hmp-selected-border-width, 2px);
+  --_hmp-focus-width: var(--hmp-focus-width, 3px);
+  --_hmp-focus-offset: var(--hmp-focus-offset, 2px);
+  --_hmp-shadow-launcher: var(--hmp-shadow-launcher, 0 4px 18px rgb(0 0 0 / 0.18));
+  --_hmp-shadow-panel: var(--hmp-shadow-panel, 0 16px 48px rgb(0 0 0 / 0.22));
+}
+
+/* ::backdrop does not inherit custom properties in every supported browser, so this stays literal. */
+dialog::backdrop {
+  background: rgb(32 32 32 / 0.35);
+}

@@ -1,71 +1,51 @@
 # Healthy Minds Finder
 
-独立演示网站 + 可嵌入 Squarespace Footer 的小工具。代码、样式、治疗师资料分开维护。无语言筛选。公开演示使用 draft 数据并显示 TEST DEMO。
+确定性的治疗师查找小工具（不是 AI 聊天）。React + TypeScript + Vite。
+同一套组件、主题和逻辑同时生成：
 
-## 最快上线看效果
+- `dist/index.html`：给老板看的独立演示页（显示草稿数据和 TEST DEMO 横幅）
+- `dist/widget.js`：嵌入 Squarespace 的单文件脚本（内含 React、CSS 和数据；只显示 `approved` 的治疗师）
 
-1. 打开 https://app.netlify.com/drop 并登录自己的 Netlify 账户，以便管理网站。
-2. 将本项目中的 public 文件夹拖进去。必须是 public，不是 src，也不是整个仓库文件夹。
-3. 得到一个 netlify.app 地址。这是独立演示网站，可发给老板，不会修改诊所网站。
-4. 手动拖放不执行构建，包中的 public 已生成。如果修改源文件，先运行 python3 build.py 再拖放。
+> 状态：第二阶段视觉原型。结果页的匹配和治疗师卡片尚未实现（第三阶段）。
 
-演示站默认可公开访问。noindex 只是请求搜索引擎不收录，不是访问密码。不要上传病人资料或未公开内容。Netlify 套餐和用量以你的账户显示为准。
+## 命令
 
-## 上传 GitHub
-
-1. 登录 GitHub，New repository，名称 healthy-minds-finder，可选 Private。
-2. 创建时勾选 Add a README file 以方便进入文件界面。
-3. Add file → Upload files。把解压后 repo 文件夹里的 src、public、build.py、netlify.toml、README.md 等拖入；不是上传 zip，也不要多套一层目录。
-4. Commit changes。仓库根目录应直接看到 src、public、build.py、netlify.toml。
-5. 可以用包内 README 替换初始化 README。GitHub 仓库地址用于管理，不放进 script src。
-
-## GitHub 连接 Netlify
-
-在 Netlify 选择 Add new project → Import an existing project → GitHub，授权该仓库并选择它。Base directory 留空；Build command 为 python3 build.py；Publish directory 为 public。netlify.toml 已包含这些配置。部署后打开网站测试。
-
-如果你先做了 Drop 演示，可以在现有项目里连接 Git 仓库，或新建 Git 项目并使用新地址；不要把旧项目地址误当成新项目地址。连接后，对部署分支的提交会自动构建更新演示站。
-
-## Squarespace Footer 小范围验证
-
-先只在独立演示站验证，不必立即操作正式诊所网站。
-
-之后在 Squarespace Core 的 Code Injection → Footer 加以下代码，用实际 Netlify 地址替换占位符：
-
-```html
-<script defer
-  src="https://YOUR-DEMO.netlify.app/widget.js"
-  data-pages="/finder-test">
-</script>
+```bash
+npm install
+npm run dev       # http://localhost:5173/  （端口固定，被占用时会报错而不是换端口）
+npm run build     # 类型检查 + 生成 dist/index.html 和 dist/widget.js
+npm run preview   # http://localhost:4173/  预览 dist 构建产物
+npm test          # 单元测试（第三阶段添加）
 ```
-
-创建 /finder-test 页面并加页面密码。data-pages 限制小工具只在这个路径初始化；访问主页不会显示，但全站 Footer 的外部脚本请求仍可能发生。这不是隔离部署，正式网站最早的测试也可以使用该测试页自身的 Code Block 放这段加载代码。
-
-移除先前粘贴的旧演示代码，避免同时安装两种版本。脚本会自动挂载，不再依赖 HTML anchor。多次加载会停止旧实例；正常 DOM 导航变化时按路径检查挂载状态。具体 Squarespace 模板仍需实测。
-
-Footer 的 src 指向部署后的 widget.js，不是 GitHub 仓库页，也不是 index.html。将 data-pages 改为 / 表示首页，改为 * 表示所有路径。测试时保留 /finder-test。
-
-## 固定版本
-
-给老板看的演示网址可跟随最新部署。正式诊所网站选用 Netlify 某次部署的 Deploy permalink 加 /widget.js，例如：
-
-https://DEPLOY-ID--YOUR-SITE.netlify.app/widget.js
-
-必须从 Netlify 复制真实 permalink，不要自行猜测 DEPLOY-ID。它锁定一次部署，与随后主分支更新分开；保留该部署，删除后链接可能不可用。需要升级时先测新部署，再改 Footer 的 src。恢复旧 permalink 可回滚。
 
 ## 源文件
 
-- src/therapists.json：人员、标签、语言展示、active、reviewStatus、sortOrder。
-- src/config.json：demoMode、公共链接和版本。
-- src/matcher.mjs：筛选逻辑。
-- src/widget.js：交互源码模板。
-- src/widget.css：组件样式。
-- build.py：构建外部可加载的 public/widget.js，内含CSS和数据，不依赖远程fetch。
-- public/index.html、public/demo.css：给老板看的演示网页，与正式诊所网页独立。
+| 文件 | 内容 |
+|---|---|
+| `src/config/content.ts` | 所有界面文案、选项标签、按钮、无障碍标签、通用链接（Owl Practice intake、团队页）、结果数量上限 |
+| `src/data/therapists.json` | 治疗师数据：id、姓名、credentials、服务、年龄范围、话题、语言、个人页、active、reviewStatus、sortOrder |
+| `src/logic/flow.ts` | 流程状态（useReducer），包括上游答案变化时清除失效的下游答案 |
+| `src/logic/filter.ts` | 纯匹配逻辑（第三阶段） |
+| `src/styles/theme.css` | 主题 token（颜色、字体、尺寸、间距、圆角、阴影、状态色） |
+| `src/styles/component.css` | 组件样式，只使用 theme.css 的别名 |
+| `src/components/*` | UI 组件，不含可编辑文案和链接 |
+| `src/mount.tsx` | Shadow DOM 挂载 / 卸载（demo 与 widget 共用） |
+| `src/embed.tsx` | widget.js 入口：生命周期、导航处理、`window.hmpFinder` |
+| `src/demo.tsx`、`index.html`、`src/demo/demo.css` | 演示页 |
 
-新增人员改 JSON，离职设 active=false。生产前逐条审核记录，再将其 reviewStatus 改为 approved，最后把 demoMode 改为 false 并构建。未经审核的草案不会在生产模式展示。
+**这些都是源文件。修改后必须重新 `npm run build` 并重新部署 `dist`，线上网站才会变化。**
 
-## 验证状态
+- 新增 / 修改 / 停用治疗师：只改 `therapists.json`（停用设 `"active": false`）。
+- `credentials: null` 表示诊所尚未提供（TODO），界面不显示。
+- 草稿记录（`"reviewStatus": "draft"`）只在演示页出现；审核后改为 `"approved"` 才会出现在正式网站。
 
-筛选规则42种组合、年龄边界、停用以及draft排除已检查；外部脚本语法已检查。尚未在真实浏览器或Squarespace模板中完成交互验证。请测试打开、下一步、返回、关闭、重新打开、3条示例路径、手机滚动、个人页及预约链接。测试不提交预约。
+## 主题 token
 
-参考：https://docs.netlify.com/start/quickstarts/deploy-from-repository/ 和 https://docs.netlify.com/start/quickstarts/netlify-drop-quickstart/
+可在宿主元素或任意祖先元素上覆盖公开 token，例如：
+
+```css
+#hmp-finder-host { --hmp-yellow: #FFE680; --hmp-title-size: 26px; }
+```
+
+公开 token 以 `--hmp-` 开头（完整列表见 `src/styles/theme.css`）。默认值只写在私有别名 `--_hmp-*` 中，因此继承来的值优先。
+字体不随 widget 打包：网站已加载 arboria / ivypresto-display 时使用它们，否则回退到 system-ui / Georgia。
