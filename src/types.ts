@@ -15,7 +15,7 @@ export interface Answers {
   topic: TopicId | null;
 }
 
-export type StepId = 'welcome' | 'service' | 'age' | 'topic' | 'review' | 'results';
+export type StepId = 'welcome' | 'service' | 'age' | 'topic' | 'results';
 
 export type ReviewStatus = 'draft' | 'approved';
 
@@ -24,6 +24,10 @@ export interface Therapist {
   name: string;
   /** null = not yet provided by the clinic (TODO). */
   credentials: string | null;
+  /** e.g. "Clinic Director". null = TODO. */
+  role: string | null;
+  /** Short practice focus shown on the card. null = TODO. */
+  practiceFocus: string | null;
   active: boolean;
   reviewStatus: ReviewStatus;
   sortOrder: number;

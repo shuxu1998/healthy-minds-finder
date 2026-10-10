@@ -4,12 +4,14 @@ import { isUsableUrl } from '../logic/url';
 
 interface ExternalLinkProps {
   href: string | null | undefined;
-  variant: 'primary' | 'secondary' | 'text';
+  variant: 'primary' | 'secondary' | 'text' | 'inline';
+  /** Decorative trailing glyph. */
+  icon?: string;
   children: ReactNode;
 }
 
-export function ExternalLink({ href, variant, children }: ExternalLinkProps) {
-  const className = `hmp-btn hmp-btn--${variant}`;
+export function ExternalLink({ href, variant, icon = '↗', children }: ExternalLinkProps) {
+  const className = variant === 'inline' ? 'hmp-link' : `hmp-btn hmp-btn--${variant}`;
 
   if (!isUsableUrl(href)) {
     return (
@@ -22,7 +24,7 @@ export function ExternalLink({ href, variant, children }: ExternalLinkProps) {
   return (
     <a className={className} href={href} target="_blank" rel="noopener noreferrer">
       {children}
-      <span aria-hidden="true">↗</span>
+      {variant !== 'inline' && <span aria-hidden="true">{icon}</span>}
       <span className="hmp-sr-only"> ({content.common.opensInNewTab})</span>
     </a>
   );

@@ -1,9 +1,10 @@
 import { useEffect, useRef, type Dispatch } from 'react';
 import { content, urls } from '../config/content';
 import { isStepComplete, type FlowAction, type FlowState } from '../logic/flow';
-import { AGE_IDS, SERVICE_IDS, TOPIC_IDS, type Answers, type StepId } from '../types';
+import { AGE_IDS, SERVICE_IDS, TOPIC_IDS, type Answers, type StepId, type Therapist } from '../types';
 import { ExternalLink } from './ExternalLink';
 import { QuestionStep } from './QuestionStep';
+import { ResultsStep } from './ResultsStep';
 
 export const PANEL_ID = 'hmp-panel';
 const TITLE_ID = 'hmp-panel-title';
@@ -12,15 +13,13 @@ interface FinderPanelProps {
   open: boolean;
   demoMode: boolean;
   state: FlowState;
+  matches: Therapist[];
   dispatch: Dispatch<FlowAction>;
   onClose: () => void;
 }
 
 function stepHeading(step: StepId, hasMatches: boolean) {
-  if (step === 'results') {
-    const { eyebrow, titleWithMatches, titleNoMatches } = content.results;
-    return { eyebrow, title: hasMatches ? titleWithMatches : titleNoMatches };
-  }
+  if (step === 'results') return hasMatches ? content.results : content.noMatches;
   return content[step];
 }
 
@@ -38,7 +37,7 @@ function AnswerSummary({ answers }: { answers: Answers }) {
   );
 }
 
-export function FinderPanel({ open, demoMode, state, dispatch, onClose }: FinderPanelProps) {
+export function FinderPanel({ open, demoMode, state, matches, dispatch, onClose }: FinderPanelProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const bodyRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -58,9 +57,8 @@ export function FinderPanel({ open, demoMode, state, dispatch, onClose }: Finder
     headingRef.current?.focus({ preventScroll: true });
   }, [open, step]);
 
-  const { eyebrow, title } = stepHeading(step, false);
-  const next = () => dispatch({ type: 'next' });
-  const back = () => dispatch({ type: 'back' });
+  const hasMatches = matches.length > 0;
+  const { eyebrow, title } = stepHeading(step, hasMatches);
 
   const navButtons = (primaryLabel: string) => (
     <div className="hmp-nav">
@@ -68,12 +66,12 @@ export function FinderPanel({ open, demoMode, state, dispatch, onClose }: Finder
         type="button"
         className="hmp-btn hmp-btn--primary"
         disabled={!isStepComplete(step, answers)}
-        onClick={next}
+        onClick={() => dispatch({ type: 'next' })}
       >
         {primaryLabel}
         <span aria-hidden="true">→</span>
       </button>
-      <button type="button" className="hmp-btn hmp-btn--text" onClick={back}>
+      <button type="button" className="hmp-btn hmp-btn--text" onClick={() => dispatch({ type: 'back' })}>
         <span aria-hidden="true">←</span>
         {content.common.back}
       </button>
@@ -81,13 +79,7 @@ export function FinderPanel({ open, demoMode, state, dispatch, onClose }: Finder
   );
 
   return (
-    <dialog
-      ref={dialogRef}
-      id={PANEL_ID}
-      className="hmp-panel"
-      aria-labelledby={TITLE_ID}
-      onClose={onClose}
-    >
+    <dialog ref={dialogRef} id={PANEL_ID} className="hmp-panel" aria-labelledby={TITLE_ID} onClose={onClose}>
       <div className="hmp-panel__header">
         <span className="hmp-panel__brand">{content.panel.brand}</span>
         <button
@@ -111,16 +103,15 @@ export function FinderPanel({ open, demoMode, state, dispatch, onClose }: Finder
           <>
             <p>{content.welcome.intro}</p>
             <div className="hmp-stack">
-              <button
-                type="button"
-                className="hmp-btn hmp-btn--primary"
-                onClick={() => dispatch({ type: 'start' })}
-              >
+              <button type="button" className="hmp-btn hmp-btn--primary" onClick={() => dispatch({ type: 'start' })}>
                 {content.welcome.start}
                 <span aria-hidden="true">→</span>
               </button>
               <ExternalLink href={urls.team} variant="secondary">
                 {content.welcome.browseTeam}
+              </ExternalLink>
+              <ExternalLink href={urls.affordableTherapy} variant="secondary">
+                {content.welcome.affordableTherapy}
               </ExternalLink>
               <ExternalLink href={urls.intake} variant="secondary">
                 {content.welcome.bookIntake}
@@ -171,39 +162,19 @@ export function FinderPanel({ open, demoMode, state, dispatch, onClose }: Finder
               selected={answers.topic}
               onSelect={(value) => dispatch({ type: 'answer', field: 'topic', value })}
             />
-            {navButtons(content.common.continue)}
-          </>
-        )}
-
-        {step === 'review' && (
-          <>
-            <AnswerSummary answers={answers} />
-            <p className="hmp-small hmp-muted">{content.review.languageNote}</p>
-            {navButtons(content.review.showResults)}
+            {navButtons(content.topic.submit)}
           </>
         )}
 
         {step === 'results' && (
           <>
-            <AnswerSummary answers={answers} />
-            <p className="hmp-todo">{content.results.notImplemented}</p>
-            <p className="hmp-small hmp-muted">{content.results.availabilityNote}</p>
-            <div className="hmp-stack">
-              <ExternalLink href={urls.intake} variant="primary">
-                {content.results.bookIntake}
-              </ExternalLink>
-              <ExternalLink href={urls.team} variant="secondary">
-                {content.results.viewAllTherapists}
-              </ExternalLink>
-            </div>
-            <div className="hmp-actions">
-              <button type="button" className="hmp-btn hmp-btn--text" onClick={() => dispatch({ type: 'edit' })}>
-                {content.results.editAnswers}
-              </button>
-              <button type="button" className="hmp-btn hmp-btn--text" onClick={() => dispatch({ type: 'restart' })}>
-                {content.results.restart}
-              </button>
-            </div>
+            {hasMatches && <AnswerSummary answers={answers} />}
+            <ResultsStep
+              matches={matches}
+              onBack={() => dispatch({ type: 'back' })}
+              onEdit={() => dispatch({ type: 'edit' })}
+              onRestart={() => dispatch({ type: 'restart' })}
+            />
           </>
         )}
       </div>

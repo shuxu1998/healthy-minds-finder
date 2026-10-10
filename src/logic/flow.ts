@@ -27,7 +27,7 @@ export function questionSteps(answers: Answers): StepId[] {
 }
 
 function stepSequence(answers: Answers): StepId[] {
-  return ['welcome', ...questionSteps(answers), 'review', 'results'];
+  return ['welcome', ...questionSteps(answers), 'results'];
 }
 
 /** Drops answers that are no longer valid after an upstream change. */
@@ -45,11 +45,14 @@ export function isStepComplete(step: StepId, answers: Answers): boolean {
       return answers.age !== null;
     case 'topic':
       return answers.topic !== null;
-    case 'review':
-      return questionSteps(answers).every((s) => isStepComplete(s, answers));
     default:
       return true;
   }
+}
+
+/** True when every question required for the current answers has been answered. */
+export function answersComplete(answers: Answers): boolean {
+  return questionSteps(answers).every((step) => isStepComplete(step, answers));
 }
 
 export function flowReducer(state: FlowState, action: FlowAction): FlowState {
@@ -61,9 +64,12 @@ export function flowReducer(state: FlowState, action: FlowAction): FlowState {
       return { ...state, step: 'service' };
     case 'answer':
       return { ...state, answers: withAnswer(state.answers, { [action.field]: action.value }) };
-    case 'next':
+    case 'next': {
       if (!isStepComplete(state.step, state.answers) || index >= sequence.length - 1) return state;
-      return { ...state, step: sequence[index + 1] };
+      const nextStep = sequence[index + 1];
+      if (nextStep === 'results' && !answersComplete(state.answers)) return state;
+      return { ...state, step: nextStep };
+    }
     case 'back':
       return index > 0 ? { ...state, step: sequence[index - 1] } : state;
     case 'edit':

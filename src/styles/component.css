@@ -278,10 +278,50 @@ strong {
   background: var(--_hmp-bg);
 }
 
-.hmp-todo {
-  padding: var(--_hmp-space-sm);
-  border: var(--_hmp-border-width) dashed var(--_hmp-text-muted);
-  border-radius: var(--_hmp-radius-option);
+.hmp-link {
+  color: var(--_hmp-text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hmp-link:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* ---------- Therapist cards ---------- */
+
+.hmp-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--_hmp-space-md);
+  margin: var(--_hmp-space-md) 0;
+}
+
+.hmp-card {
+  padding: var(--_hmp-space-md) var(--_hmp-space-lg);
+  border-radius: var(--_hmp-radius-card);
+  background: var(--_hmp-bg);
+}
+
+.hmp-card__name {
+  margin: 0 0 var(--_hmp-space-xs);
+  font-family: var(--_hmp-head);
+  font-size: var(--_hmp-card-title-size);
+  font-weight: var(--_hmp-head-weight);
+  line-height: var(--_hmp-heading-line-height);
+}
+
+.hmp-card__name:focus {
+  outline: none;
+}
+
+.hmp-card__meta {
+  margin: var(--_hmp-space-xs) 0;
+}
+
+.hmp-card .hmp-btn--text {
+  margin-top: var(--_hmp-space-xs);
+  padding-left: 0;
 }
 
 /* ---------- Options ---------- */

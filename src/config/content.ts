@@ -7,11 +7,12 @@ export const urls = {
   /** General Owl Practice intake (booking) page. */
   intake: 'https://aws-portal.owlpractice.ca/healthymindspsychotherapy/booking',
   team: 'https://www.healthymindspsychotherapy.com/our-team',
+  affordableTherapy: 'https://www.healthymindspsychotherapy.com/affordable-therapy-toronto',
 };
 
 export const settings = {
-  /** Maximum number of therapist cards shown on the results step. */
-  maxResults: 3,
+  /** Therapist cards shown first, and added per "Show more" click. */
+  resultsPageSize: 3,
 };
 
 export const content = {
@@ -38,6 +39,7 @@ export const content = {
     intro: 'Choose a few options to explore our team.',
     start: 'Help me find a therapist',
     browseTeam: 'Browse all therapists',
+    affordableTherapy: 'Affordable therapy',
     bookIntake: 'Book a complimentary intake',
     disclaimer: 'An automated guide to our team. Not therapy or emergency support.',
   },
@@ -72,6 +74,7 @@ export const content = {
     eyebrow: '2 OF 2 · SUPPORT',
     title: 'What would you like support with?',
     hint: 'Choose one topic to get started.',
+    submit: 'Show therapists',
     options: {
       A: 'Stress & anxiety',
       G: 'Grief & loss',
@@ -82,23 +85,31 @@ export const content = {
     } satisfies Record<TopicId, string>,
   },
 
-  review: {
-    eyebrow: 'REVIEW YOUR CHOICES',
-    title: 'Ready to explore?',
-    languageNote: 'Language does not limit your results.',
-    showResults: 'Show therapists',
-  },
-
   results: {
     eyebrow: 'YOUR OPTIONS',
-    titleWithMatches: 'Therapists to explore.',
-    titleNoMatches: 'Our team can help.',
-    // TODO(phase 3): remove once results are implemented.
-    notImplemented: 'Results are not implemented in this visual prototype yet.',
+    title: 'Therapists to explore.',
+    showing: (shown: number, total: number) =>
+      `Showing ${shown} of ${total} ${total === 1 ? 'profile' : 'profiles'} that match these directory tags.`,
+    languageNote: 'Language does not limit your results.',
+    practiceFocusLabel: 'Practice focus:',
+    viewProfile: 'View profile',
+    showMore: 'Show more therapists',
+    availabilityNote: 'Availability and suitability are confirmed at intake.',
+    bookIntake: 'Book a complimentary intake',
+    viewAllTherapists: 'View all therapists',
     editAnswers: 'Edit my answers',
     restart: 'Start again',
-    viewAllTherapists: 'View all therapists',
+  },
+
+  // Shown instead of results when nothing matches. Criteria are never broadened.
+  noMatches: {
+    eyebrow: 'LET’S FIND ANOTHER WAY',
+    title: 'Our team can help.',
+    body: 'We couldn’t find a profile matching all your selections.',
     bookIntake: 'Book a complimentary intake',
-    availabilityNote: 'Availability and suitability are confirmed at intake.',
+    changeOptions: 'Change my options',
+    browsePrefix: 'You can also ',
+    browseLink: 'browse the full team',
+    browseSuffix: '.',
   },
 };
