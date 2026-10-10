@@ -315,7 +315,8 @@ strong {
   outline: none;
 }
 
-.hmp-card__meta {
+.hmp-card__meta,
+.hmp-card__status {
   margin: var(--_hmp-space-xs) 0;
 }
 

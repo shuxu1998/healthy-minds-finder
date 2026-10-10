@@ -13,6 +13,8 @@ export const urls = {
 export const settings = {
   /** Therapist cards shown first, and added per "Show more" click. */
   resultsPageSize: 3,
+  /** How many of a therapist's focus areas appear after "Practice focus:" on the card. */
+  cardFocusCount: 3,
 };
 
 export const content = {

@@ -9,9 +9,13 @@ function therapist(overrides: Partial<Therapist>): Therapist {
   return {
     id: 'X',
     name: 'Test',
-    credentials: null,
-    role: null,
-    practiceFocus: null,
+    title: 'Registered Psychotherapist',
+    creds: ['RP'],
+    approaches: [],
+    focus: [],
+    serves: [],
+    langs: ['English'],
+    url: 'https://www.healthymindspsychotherapy.com/our-team-test',
     active: true,
     reviewStatus: 'approved',
     sortOrder: 1,
@@ -19,8 +23,6 @@ function therapist(overrides: Partial<Therapist>): Therapist {
     childMin: null,
     childMax: null,
     topics: ['A'],
-    languages: ['English'],
-    profileUrl: 'https://www.healthymindspsychotherapy.com/our-team-test',
     ...overrides,
   };
 }
@@ -33,7 +35,7 @@ const ids = (list: Therapist[]) => list.map((t) => t.id);
 describe('matchTherapists', () => {
   it('matches by service and topic IDs, ordered by sortOrder', () => {
     expect(ids(matchTherapists(real, adultAnxiety, demo))).toEqual([
-      'T01', 'T02', 'T03', 'T04', 'T05', 'T06', 'T07', 'T08', 'T09', 'T10',
+      'katharine-de-santos', 'kelsey-dubiel', 'sarah-brown', 'gabrielle-mccarthy', 'kimberly-cartwright', 'atessa-hooshvar', 'maria-moncaleano', 'erin-hardy', 'kasey-silva', 'ekta-maloo',
     ]);
   });
 
@@ -59,24 +61,24 @@ describe('matchTherapists', () => {
   });
 
   it('"not sure" topic matches any topic but keeps the service requirement', () => {
-    expect(ids(matchTherapists(real, { service: 'couples', age: null, topic: 'X' }, demo))).toEqual(['T01', 'T04']);
+    expect(ids(matchTherapists(real, { service: 'couples', age: null, topic: 'X' }, demo))).toEqual(['katharine-de-santos', 'gabrielle-mccarthy']);
   });
 
   it('requires the full age band to be inside the therapist range', () => {
     const child = (age: Answers['age']) =>
       ids(matchTherapists(real, { service: 'child_teen', age, topic: 'X' }, demo));
     expect(child('under6')).toEqual([]);
-    expect(child('age6_7')).toEqual(['T09']);
-    expect(child('age8_14')).toEqual(['T03', 'T09']);
-    expect(child('age15_17')).toEqual(['T03', 'T08', 'T09']);
+    expect(child('age6_7')).toEqual(['kasey-silva']);
+    expect(child('age8_14')).toEqual(['sarah-brown', 'kasey-silva']);
+    expect(child('age15_17')).toEqual(['sarah-brown', 'erin-hardy', 'kasey-silva']);
   });
 
   it('never broadens criteria when there are no matches', () => {
-    // Only Kasey (T09) covers ages 6–7, and she does not list grief: no match, not "Kasey anyway".
+    // Only Kasey (kasey-silva) covers ages 6–7, and she does not list grief: no match, not "Kasey anyway".
     expect(matchTherapists(real, { service: 'child_teen', age: 'age6_7', topic: 'G' }, demo)).toEqual([]);
     expect(matchTherapists(real, { service: 'child_teen', age: 'under6', topic: 'A' }, demo)).toEqual([]);
-    expect(ids(matchTherapists(real, { service: 'family', age: null, topic: 'G' }, demo))).toEqual(['T03']);
-    expect(ids(matchTherapists(real, { service: 'family', age: null, topic: 'R' }, demo))).toEqual(['T09']);
+    expect(ids(matchTherapists(real, { service: 'family', age: null, topic: 'G' }, demo))).toEqual(['sarah-brown']);
+    expect(ids(matchTherapists(real, { service: 'family', age: null, topic: 'R' }, demo))).toEqual(['kasey-silva']);
   });
 
   it('returns nothing for incomplete answers', () => {

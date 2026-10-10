@@ -1,11 +1,46 @@
 [
   {
-    "id": "T01",
+    "id": "katharine-de-santos",
     "name": "Katharine De Santos",
-    "credentials": "MA, RP",
-    "role": "Clinic Director",
-    "practiceFocus": "EMDR therapy",
+    "title": "Founder & Clinic Director | Registered Psychotherapist (RP) | EMDR Therapist",
+    "creds": [
+      "MA",
+      "RP"
+    ],
+    "approaches": [
+      "EMDR (Eye Movement Desensitization and Reprocessing)",
+      "Trauma-Informed Psychotherapy",
+      "Cognitive Behavioural Therapy (CBT)",
+      "Dialectical Behaviour Therapy (DBT)",
+      "Mindfulness-Based Interventions",
+      "Attachment-Based Therapy",
+      "Strengths-Based and Collaborative Approach"
+    ],
+    "focus": [
+      "Trauma and PTSD",
+      "EMDR Therapy",
+      "Anxiety and Depression",
+      "Grief and Loss",
+      "Fertility and Reproductive Mental Health",
+      "Life Transitions",
+      "Relationship Concerns"
+    ],
+    "serves": [
+      "Trauma survivors seeking EMDR therapy for PTSD, anxiety, and depression",
+      "Individuals navigating fertility challenges, pregnancy loss, and reproductive mental health",
+      "First responders, healthcare workers, and frontline professionals experiencing burnout or occupational stress",
+      "Those facing life transitions such as career changes, grief, loss, and relationship shifts",
+      "Members of 2SLGBTQI+, BIPOC, immigrant, and marginalized communities seeking culturally responsive care",
+      "Couples seeking support to strengthen communication, rebuild connection, or navigate relationship challenges"
+    ],
+    "langs": [
+      "English"
+    ],
+    "url": "https://www.healthymindspsychotherapy.com/our-team-katharine-de-santos",
     "active": true,
+    "status": "Accepting Clients",
+    "format": "In-Person and Virtual",
+    "avail": "Wednesday and Thursday (Virtual) / Friday and Saturday (In-Person)",
     "reviewStatus": "draft",
     "sortOrder": 1,
     "services": [
@@ -20,19 +55,47 @@
       "R",
       "L",
       "M"
-    ],
-    "languages": [
-      "English"
-    ],
-    "profileUrl": "https://www.healthymindspsychotherapy.com/our-team-katharine-de-santos"
+    ]
   },
   {
-    "id": "T02",
+    "id": "kelsey-dubiel",
     "name": "Kelsey DuBiel",
-    "credentials": null,
-    "role": null,
-    "practiceFocus": null,
+    "title": "Registered Psychotherapist",
+    "creds": [
+      "MA",
+      "RP"
+    ],
+    "approaches": [
+      "Acceptance and Commitment Therapy (ACT)",
+      "Narrative Therapy",
+      "Cognitive Behaviour Therapy (CBT)"
+    ],
+    "focus": [
+      "Grief and Bereavement",
+      "Anxiety",
+      "Depression",
+      "Caregiver Stress",
+      "Family and Relationship Conflict",
+      "Life Transitions",
+      "Work Stress"
+    ],
+    "serves": [
+      "Adults (18+)",
+      "Older adults (65+)",
+      "2SLGBTQI+ communities",
+      "Individuals navigating caregiving",
+      "Those experiencing grief or loss",
+      "People facing life transitions"
+    ],
+    "langs": [
+      "English"
+    ],
+    "url": "https://www.healthymindspsychotherapy.com/our-team-kelsey-dubiel",
     "active": true,
+    "status": "Currently accepting new clients",
+    "format": "Virtual",
+    "avail": "Tuesdays 4 to 9 pm and Wednesdays 5 to 9 pm",
+    "fees": "Individual $180",
     "reviewStatus": "draft",
     "sortOrder": 2,
     "services": [
@@ -46,19 +109,53 @@
       "R",
       "L",
       "M"
-    ],
-    "languages": [
-      "English"
-    ],
-    "profileUrl": "https://www.healthymindspsychotherapy.com/our-team-kelsey-dubiel"
+    ]
   },
   {
-    "id": "T03",
+    "id": "sarah-brown",
     "name": "Sarah Brown",
-    "credentials": null,
-    "role": null,
-    "practiceFocus": null,
+    "title": "Registered Psychotherapist",
+    "creds": [
+      "MA",
+      "RP"
+    ],
+    "approaches": [
+      "Dialectical Behaviour Therapy (DBT)",
+      "Cognitive Behavioural Therapy (CBT)",
+      "Acceptance and Commitment Therapy (ACT)",
+      "Narrative Therapy",
+      "Humanistic and Client Centered Therapy",
+      "Eclectic, integrative approach tailored to client needs"
+    ],
+    "focus": [
+      "Grief and bereavement",
+      "End of Life and Palliative Care Support",
+      "Anxiety",
+      "Depression",
+      "Trauma",
+      "Substance Use",
+      "Concurrent Disorders",
+      "Adjustment Disorders",
+      "Life Transitions"
+    ],
+    "serves": [
+      "Children (8+)",
+      "Adolescents",
+      "Adults (18+)",
+      "Older adults (65+)",
+      "2SLGBTQI+ communities",
+      "Family sessions for existing clients",
+      "Individuals facing end-of-life concerns",
+      "Those supporting a loved one through illness or loss"
+    ],
+    "langs": [
+      "English"
+    ],
+    "url": "https://www.healthymindspsychotherapy.com/our-team-sarah-brown",
     "active": true,
+    "status": "Currently accepting new clients",
+    "format": "Virtual",
+    "avail": "Monday, Tuesday, Wednesday, Thursday and Friday (Virtual)",
     "reviewStatus": "draft",
     "sortOrder": 3,
     "services": [
@@ -73,19 +170,56 @@
       "G",
       "L",
       "M"
-    ],
-    "languages": [
-      "English"
-    ],
-    "profileUrl": "https://www.healthymindspsychotherapy.com/our-team-sarah-brown"
+    ]
   },
   {
-    "id": "T04",
+    "id": "gabrielle-mccarthy",
     "name": "Gabrielle McCarthy",
-    "credentials": null,
-    "role": null,
-    "practiceFocus": null,
+    "title": "Registered Psychotherapist (Qualifying)",
+    "creds": [
+      "BSN",
+      "MEd",
+      "RP (Qualifying)"
+    ],
+    "approaches": [
+      "Emotionally Focused Therapy (EFT)",
+      "Dialectical Behaviour Therapy (DBT)",
+      "Family Systems Therapy",
+      "Trauma-Informed Therapy",
+      "Person-Centred Therapy",
+      "Strengths-Based Approach",
+      "Integrative Therapy"
+    ],
+    "focus": [
+      "Anxiety",
+      "Low Mood",
+      "Self-Worth and Self-Esteem",
+      "Family and Relationship Conflict",
+      "Chronic Illness and Diagnosis",
+      "Infertility",
+      "Caregiving",
+      "Stress and Life Transitions",
+      "Neurodiversity",
+      "Trauma"
+    ],
+    "serves": [
+      "Adults (18+)",
+      "Couples",
+      "Individuals navigating chronic illness",
+      "Those facing a new or complex diagnosis",
+      "People experiencing infertility",
+      "Caregivers and those supporting a loved one",
+      "Neurodiverse Individuals"
+    ],
+    "langs": [
+      "English",
+      "French"
+    ],
+    "url": "https://www.healthymindspsychotherapy.com/our-team-gabrielle-mccarthy",
     "active": true,
+    "status": "Currently accepting new clients",
+    "format": "Virtual",
+    "avail": "Monday and Wednesday, 12 pm-8 pm (Virtual)",
     "reviewStatus": "draft",
     "sortOrder": 4,
     "services": [
@@ -99,20 +233,49 @@
       "R",
       "L",
       "M"
-    ],
-    "languages": [
-      "English",
-      "French"
-    ],
-    "profileUrl": "https://www.healthymindspsychotherapy.com/our-team-gabrielle-mccarthy"
+    ]
   },
   {
-    "id": "T05",
+    "id": "kimberly-cartwright",
     "name": "Kimberly Cartwright",
-    "credentials": null,
-    "role": null,
-    "practiceFocus": null,
+    "title": "Registered Psychotherapist",
+    "creds": [
+      "RP"
+    ],
+    "approaches": [
+      "Trauma-Informed Therapy",
+      "Gestalt Therapy",
+      "Psychodynamic Therapy",
+      "Dialectical Behaviour Therapy (DBT)",
+      "Somatic Therapy",
+      "Mindfulness-Based Interventions"
+    ],
+    "focus": [
+      "Anxiety",
+      "Grief",
+      "Life Transitions",
+      "Gender and Sexual Identity",
+      "Relationship Concerns",
+      "Postpartum and Parenting",
+      "Academic and Workplace Stress",
+      "Learning Disabilities and ADHD"
+    ],
+    "serves": [
+      "Adults (18+)",
+      "2SLGBTQI+ communities",
+      "New and expecting parents",
+      "Individuals navigating postpartum",
+      "People with ADHD or learning disabilities",
+      "Those experiencing grief or loss"
+    ],
+    "langs": [
+      "English"
+    ],
+    "url": "https://www.healthymindspsychotherapy.com/our-team-kimberly-cartwrigh",
     "active": true,
+    "status": "Currently on Leave",
+    "format": "In-Person and Virtual",
+    "avail": "Monday, Tuesday and Wednesday (In-Person) / Thursday (Virtual)",
     "reviewStatus": "draft",
     "sortOrder": 5,
     "services": [
@@ -125,19 +288,52 @@
       "G",
       "R",
       "L"
-    ],
-    "languages": [
-      "English"
-    ],
-    "profileUrl": "https://www.healthymindspsychotherapy.com/our-team-kimberly-cartwrigh"
+    ]
   },
   {
-    "id": "T06",
+    "id": "atessa-hooshvar",
     "name": "Atessa Hooshvar",
-    "credentials": null,
-    "role": null,
-    "practiceFocus": null,
+    "title": "Registered Psychotherapist (Qualifying)",
+    "creds": [
+      "MA",
+      "RP (Qualifying)"
+    ],
+    "approaches": [
+      "Acceptance and Commitment Therapy (ACT)",
+      "Cognitive-Behavioural Therapy (CBT)",
+      "Schema Therapy",
+      "Existential Therapy",
+      "Expressive Arts Therapy",
+      "Jungian Approaches"
+    ],
+    "focus": [
+      "Trauma and Recovery",
+      "Grief and Loss",
+      "Chronic Illness",
+      "Life Transitions",
+      "Self-Esteem and Confidence",
+      "Personal Growth and Identity",
+      "Stress Management",
+      "Emotional Resilience",
+      "Sleep Disturbances",
+      "Support for Refugees and Immigrant Communities"
+    ],
+    "serves": [
+      "Adults (18+)",
+      "Immigrants and refugees",
+      "Individuals navigating chronic illness",
+      "Those experiencing grief or trauma",
+      "Clients seeking culturally attuned care"
+    ],
+    "langs": [
+      "English",
+      "Farsi"
+    ],
+    "url": "https://www.healthymindspsychotherapy.com/our-team-atessa-hooshvar",
     "active": true,
+    "status": "Currently accepting new clients",
+    "format": "Virtual",
+    "avail": "Tuesday, Wednesday, Thursday, Friday and Sunday (Virtual)",
     "reviewStatus": "draft",
     "sortOrder": 6,
     "services": [
@@ -149,20 +345,50 @@
       "A",
       "G",
       "L"
-    ],
-    "languages": [
-      "English",
-      "Farsi"
-    ],
-    "profileUrl": "https://www.healthymindspsychotherapy.com/our-team-atessa-hooshvar"
+    ]
   },
   {
-    "id": "T07",
+    "id": "maria-moncaleano",
     "name": "Maria Moncaleano",
-    "credentials": null,
-    "role": null,
-    "practiceFocus": null,
+    "title": "Therapist In Training",
+    "creds": [
+      "MEd (Candidate)"
+    ],
+    "approaches": [
+      "Acceptance and Commitment Therapy (ACT)",
+      "Trauma-Informed Therapy",
+      "Cognitive Therapy",
+      "Critical Multi-cultural Practice",
+      "Person-Centred Therapy",
+      "Strength Based Approach"
+    ],
+    "focus": [
+      "Grief and Bereavement",
+      "Trauma",
+      "Grief and Loss",
+      "Anxiety",
+      "Depression",
+      "Addictions",
+      "Life Transitions",
+      "Cultural Identity",
+      "Cognitive Health Concerns"
+    ],
+    "serves": [
+      "Adults (18+)",
+      "Spanish-speaking clients",
+      "Immigrant and newcomer communities",
+      "Individuals navigating grief or loss",
+      "Those experiencing anxiety or depression",
+      "Clients with trauma histories"
+    ],
+    "langs": [
+      "English",
+      "Spanish"
+    ],
+    "url": "https://www.healthymindspsychotherapy.com/our-team-maria-moncaleano",
     "active": true,
+    "status": "Accepting new clients September 2026",
+    "format": "In-Person and Virtual",
     "reviewStatus": "draft",
     "sortOrder": 7,
     "services": [
@@ -175,20 +401,51 @@
       "G",
       "L",
       "M"
-    ],
-    "languages": [
-      "English",
-      "Spanish"
-    ],
-    "profileUrl": "https://www.healthymindspsychotherapy.com/our-team-maria-moncaleano"
+    ]
   },
   {
-    "id": "T08",
+    "id": "erin-hardy",
     "name": "Erin Hardy",
-    "credentials": null,
-    "role": null,
-    "practiceFocus": null,
+    "title": "Registered Psychotherapist (Qualifying) | Therapist In Training",
+    "creds": [
+      "RN",
+      "BScN",
+      "MACP (Candidate)"
+    ],
+    "approaches": [
+      "Cognitive Behavioural Therapy (CBT)",
+      "Dialectical Behaviour Therapy (DBT)",
+      "Acceptance and Commitment Therapy (ACT)",
+      "Solution-Focused Brief Therapy (SFBT)",
+      "Emotionally Focused Therapy (EFT)",
+      "Person-Centred Therapy"
+    ],
+    "focus": [
+      "Health Concerns and Chronic Illness",
+      "Healthcare Professionals and Caregivers",
+      "Anxiety",
+      "Depression",
+      "Life Transitions",
+      "Relationship Issues",
+      "Trauma",
+      "Life Stressors"
+    ],
+    "serves": [
+      "Adolescents (15+)",
+      "Adults (18+)",
+      "Healthcare professionals",
+      "Caregivers",
+      "Individuals navigating illness or injury",
+      "Those facing health-related life transitions"
+    ],
+    "langs": [
+      "English"
+    ],
+    "url": "https://www.healthymindspsychotherapy.com/our-team-erin-hardy",
     "active": true,
+    "status": "Currently accepting new clients",
+    "format": "In-Person and Virtual",
+    "avail": "Tuesday and Wednesday 11 am to 8 pm (Virtual) / Thursday and Friday 10am to 5pm (Virtual) / Saturday 9 am to 5 pm (In-Person)",
     "reviewStatus": "draft",
     "sortOrder": 8,
     "services": [
@@ -202,19 +459,50 @@
       "R",
       "L",
       "M"
-    ],
-    "languages": [
-      "English"
-    ],
-    "profileUrl": "https://www.healthymindspsychotherapy.com/our-team-erin-hardy"
+    ]
   },
   {
-    "id": "T09",
+    "id": "kasey-silva",
     "name": "Kasey Silva",
-    "credentials": null,
-    "role": null,
-    "practiceFocus": null,
+    "title": "Registered Psychotherapist (Qualifying)",
+    "creds": [
+      "MA",
+      "RP (Qualifying)"
+    ],
+    "approaches": [
+      "Acceptance and Commitment Therapy (ACT)",
+      "Narrative Therapy",
+      "Cognitive Behaviour Therapy (CBT)",
+      "Dialectical Behavior Therapy (DBT)",
+      "Solution Focused Brief (SFBT)",
+      "Mindfulness-Based Cognitive Therapy (MBCT)"
+    ],
+    "focus": [
+      "Anxiety",
+      "Stress",
+      "Life Transitions",
+      "Family and Relationship Conflict",
+      "Identity",
+      "Low Self-esteem"
+    ],
+    "serves": [
+      "Children (6+)",
+      "Teens",
+      "Adults",
+      "Families",
+      "2SLGBTQI+ communities",
+      "Individuals navigating caregiving",
+      "People facing life transitions"
+    ],
+    "langs": [
+      "English",
+      "Portuguese"
+    ],
+    "url": "https://www.healthymindspsychotherapy.com/our-team-kasey-silva",
     "active": true,
+    "status": "Currently accepting new clients",
+    "format": "In-Person and Virtual",
+    "avail": "In Person: Monday 8 a.m. to 8 p.m. Virtual: Tuesday & Wednesday, 8 a.m. to 8 p.m., and Saturday, 8 a.m. to 4 p.m.",
     "reviewStatus": "draft",
     "sortOrder": 9,
     "services": [
@@ -228,20 +516,47 @@
       "A",
       "R",
       "L"
-    ],
-    "languages": [
-      "English",
-      "Portuguese"
-    ],
-    "profileUrl": "https://www.healthymindspsychotherapy.com/our-team-kasey-silva"
+    ]
   },
   {
-    "id": "T10",
+    "id": "ekta-maloo",
     "name": "Ekta Maloo",
-    "credentials": null,
-    "role": null,
-    "practiceFocus": null,
+    "title": "Therapist In Training",
+    "creds": [
+      "MEd (Candidate)"
+    ],
+    "approaches": [
+      "Acceptance and Commitment Therapy (ACT)",
+      "Person-Centered Therapy",
+      "Cognitive Behavioural Therapy (CBT)",
+      "Psychodynamic therapy",
+      "Solution-Focused Therapy",
+      "Trauma-informed Approach",
+      "Culturally Responsive Care"
+    ],
+    "focus": [
+      "Grief and Bereavement",
+      "Trauma",
+      "Anxiety",
+      "Depression",
+      "Self-esteem",
+      "Relationship issues",
+      "Life Transitions",
+      "Grief and Loss",
+      "Familial and cultural pressures"
+    ],
+    "serves": [
+      "Adults (18+)",
+      "Individuals from diverse and BIPOC communities"
+    ],
+    "langs": [
+      "English",
+      "Hindi"
+    ],
+    "url": "https://www.healthymindspsychotherapy.com/our-team-ekta-maloo",
     "active": true,
+    "status": "Accepting new clients September 2026",
+    "format": "In-Person and Virtual",
     "reviewStatus": "draft",
     "sortOrder": 10,
     "services": [
@@ -255,11 +570,6 @@
       "R",
       "L",
       "M"
-    ],
-    "languages": [
-      "English",
-      "Hindi"
-    ],
-    "profileUrl": "https://www.healthymindspsychotherapy.com/our-team-ekta-maloo"
+    ]
   }
 ]

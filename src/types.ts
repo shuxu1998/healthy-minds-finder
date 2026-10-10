@@ -20,23 +20,32 @@ export type StepId = 'welcome' | 'service' | 'age' | 'topic' | 'results';
 export type ReviewStatus = 'draft' | 'approved';
 
 export interface Therapist {
+  // Profile fields, copied from the clinic's profile pages.
   id: string;
   name: string;
-  /** null = not yet provided by the clinic (TODO). */
-  credentials: string | null;
-  /** e.g. "Clinic Director". null = TODO. */
-  role: string | null;
-  /** Short practice focus shown on the card. null = TODO. */
-  practiceFocus: string | null;
+  /** Segments separated by " | "; the card shows the first segment. */
+  title: string;
+  creds: string[];
+  approaches: string[];
+  /** Areas of focus, in profile order; the card shows the first few. */
+  focus: string[];
+  serves: string[];
+  langs: string[];
+  url: string | null;
   active: boolean;
+  /** Accepting-clients status as written on the profile, shown on the card. */
+  status?: string;
+  format?: string;
+  avail?: string;
+  fees?: string;
+  /** Only set when the clinic provides a therapist-specific booking link. */
+  bookingUrl?: string | null;
+
+  // Matching fields (draft mapping until the clinic approves each record).
   reviewStatus: ReviewStatus;
   sortOrder: number;
   services: ServiceId[];
   childMin: number | null;
   childMax: number | null;
   topics: TherapistTopicId[];
-  languages: string[];
-  profileUrl: string | null;
-  /** Only set when the clinic provides a therapist-specific booking link. */
-  bookingUrl?: string | null;
 }

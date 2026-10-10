@@ -32,7 +32,7 @@ npm test          # 匹配逻辑与流程状态的单元测试
 | 文件 | 内容 |
 |---|---|
 | `src/config/content.ts` | 所有界面文案、选项标签、按钮、无障碍标签、通用链接（Owl Practice intake、团队页、Affordable therapy 页）、每页结果数 |
-| `src/data/therapists.json` | 治疗师数据：id、name、credentials、role、practiceFocus、services、childMin/childMax、topics、languages、profileUrl、active、reviewStatus、sortOrder |
+| `src/data/therapists.json` | 治疗师数据。前半部分是个人页资料：id、name、title、creds、approaches、focus、serves、langs、url、active、status、format、avail、fees；后半部分是匹配字段：reviewStatus、sortOrder、services、childMin/childMax、topics |
 | `src/logic/filter.ts` | 纯匹配逻辑（无 React / DOM / 网络） |
 | `src/logic/flow.ts` | 流程状态（useReducer）与下游答案失效规则 |
 | `src/styles/theme.css` / `component.css` | 主题 token / 组件样式 |
@@ -44,7 +44,8 @@ npm test          # 匹配逻辑与流程状态的单元测试
 治疗师数据：
 
 - 新增 / 修改 / 停用治疗师只改 `therapists.json`；停用设 `"active": false`（任何模式下都不显示）。
-- `credentials`、`role`、`practiceFocus` 为 `null` 表示诊所尚未提供（TODO），卡片会隐藏该行。
+- 卡片显示：姓名；`creds` · `title` 的第一段（以 `|` 分隔）；“Practice focus:” 加 `focus` 的前 3 项（数量见 `content.ts` 的 `settings.cardFocusCount`）；`status`；“View profile →”。`approaches`、`serves`、`langs`、`format`、`avail`、`fees` 只保存，不显示。
+- 匹配只看 `services`、`childMin`/`childMax`、`topics`，不会读取 `focus` 或 `serves` 的文字。修改个人页资料后，如有需要请同步检查匹配字段。
 - `"reviewStatus": "draft"` 只在演示页出现；诊所审核后改为 `"approved"` 才会出现在正式网站。**目前 10 条全部是 draft，所以正式网站暂时只会显示“Our team can help.”页。**
 - 话题 ID：A 压力/焦虑，G 悲伤/失去，R 关系，L 人生变化，M 情绪低落（X “不确定” 不写在治疗师上）。
 
@@ -101,7 +102,7 @@ Settings → Advanced → Code Injection → Footer：
 
 ## 已知 TODO
 
-- 9 位治疗师缺少 credentials / role / practiceFocus（只有 Katharine De Santos 已提供）。
+- Kimberly Cartwright 的 `status` 为 “Currently on Leave” 但 `active` 为 true：会出现在结果里，卡片显示 “Currently on Leave”。如不希望显示，把 `active` 改为 false。
 - 所有记录仍是 draft，需诊所逐条审核后改为 approved。
 - Sarah Brown 的家庭治疗：资料原文为 “Family sessions for existing clients”，需诊所确认是否应对新来访者显示。
 - Figma 需要登录，未能查看；布局依据现有实现与用户提供的截图。

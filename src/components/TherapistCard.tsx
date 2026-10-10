@@ -1,5 +1,5 @@
 import type { Ref } from 'react';
-import { content } from '../config/content';
+import { content, settings } from '../config/content';
 import type { Therapist } from '../types';
 import { ExternalLink } from './ExternalLink';
 
@@ -9,8 +9,10 @@ interface TherapistCardProps {
 }
 
 export function TherapistCard({ therapist, headingRef }: TherapistCardProps) {
-  const { name, credentials, role, practiceFocus, profileUrl } = therapist;
-  const meta = [credentials, role].filter(Boolean).join(' · ');
+  const { name, title, creds, focus, status, url } = therapist;
+  const role = title.split('|')[0].trim();
+  const meta = [creds.join(', '), role].filter(Boolean).join(' · ');
+  const focusShown = focus.slice(0, settings.cardFocusCount).join(', ');
 
   return (
     <article className="hmp-card">
@@ -18,12 +20,13 @@ export function TherapistCard({ therapist, headingRef }: TherapistCardProps) {
         {name}
       </h3>
       {meta && <p className="hmp-card__meta">{meta}</p>}
-      {practiceFocus && (
+      {focusShown && (
         <p className="hmp-card__meta">
-          {content.results.practiceFocusLabel} {practiceFocus}
+          {content.results.practiceFocusLabel} {focusShown}
         </p>
       )}
-      <ExternalLink href={profileUrl} variant="text" icon="→">
+      {status && <p className="hmp-card__status hmp-small hmp-muted">{status}</p>}
+      <ExternalLink href={url} variant="text" icon="→">
         {content.results.viewProfile}
       </ExternalLink>
     </article>
