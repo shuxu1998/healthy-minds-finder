@@ -51,14 +51,15 @@ npm test          # 匹配逻辑与流程状态的单元测试
 
 ## 部署到 GitHub Pages
 
-1. 在 GitHub 新建仓库（如 `healthy-minds-finder`），把本项目推上去（`dist/` 与 `node_modules/` 已在 `.gitignore`）。
-2. 本地运行 `npm run build`，得到 `dist/index.html`、`dist/assets/*`、`dist/widget.js`。
-3. 发布 `dist` 的任选一种方式：
-   - **gh-pages 分支**：`npx gh-pages -d dist`，然后在仓库 Settings → Pages 选择 “Deploy from a branch”，分支 `gh-pages`，目录 `/ (root)`。
-   - **GitHub Actions**：Settings → Pages 选 “GitHub Actions”，用官方 “Static HTML” 模板，把构建步骤改为 `npm ci && npm run build`，上传目录 `dist`。
-4. 发布后：
-   - 演示页：`https://<user>.github.io/<repo>/`
-   - 小工具：`https://<user>.github.io/<repo>/widget.js`
+仓库：https://github.com/shuxu1998/healthy-minds-finder
+
+`.github/workflows/deploy.yml` 会在每次推送到 `main` 时自动运行 `npm ci`、`npm test`、`npm run build`，并把 `dist` 发布到 GitHub Pages。测试或构建失败时不会发布。
+
+1. 首次使用：仓库 Settings → Pages → Build and deployment → Source 选 **GitHub Actions**（只需设置一次）。
+2. 之后每次 `git push`，在仓库的 Actions 页可以看到部署进度，通常一两分钟完成。
+3. 发布后：
+   - 演示页：https://shuxu1998.github.io/healthy-minds-finder/
+   - 小工具：https://shuxu1998.github.io/healthy-minds-finder/widget.js
 
 所有路径都是相对路径，不需要自定义域名，也不假设部署在域名根目录。
 
@@ -68,7 +69,7 @@ Settings → Advanced → Code Injection → Footer：
 
 ```html
 <script
-  src="https://<user>.github.io/<repo>/widget.js"
+  src="https://shuxu1998.github.io/healthy-minds-finder/widget.js"
   defer
 ></script>
 ```
@@ -76,7 +77,7 @@ Settings → Advanced → Code Injection → Footer：
 建议先只在一个加密码的测试页验证（可选属性 `data-pages`，逗号分隔路径，不写则全站显示）：
 
 ```html
-<script src="https://<user>.github.io/<repo>/widget.js" data-pages="/finder-test" defer></script>
+<script src="https://shuxu1998.github.io/healthy-minds-finder/widget.js" data-pages="/finder-test" defer></script>
 ```
 
 小工具不会自动打开面板。网站无需安装 React。
